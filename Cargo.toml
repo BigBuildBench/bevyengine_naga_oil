@@ -1,0 +1,24 @@
+[package]
+name = "naga_oil"
+version = "0.15.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "a crate for combining and manipulating shaders using naga IR"
+repository = "https://github.com/bevyengine/naga_oil/"
+readme = "README.md"
+
+[features]
+default = ["test_shader", "glsl"]
+# enable tests that need a graphical card
+test_shader = []
+glsl = ["naga/glsl-in", "naga/glsl-out"]
+override_any = []
+prune = []
+allow_deprecated = []
+
+[dependencies]
+
+[dev-dependencies]
+wgpu = { version = "22", features = ["naga-ir"] }
+futures-lite = "1"
+tracing-subscriber = { version = "0.3", features = ["std", "fmt"] }
